@@ -10,3 +10,5 @@ budget calculation
 
 optional:
 previous itenerary
+user feedback
+recommendation engine
