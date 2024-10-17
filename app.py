@@ -147,7 +147,8 @@ def login():
 @app.route('/home')
 def home():
     if 'user_id' in session:
-        return f"Welcome, User ID: {session['user_id']}! This is your home page."
+        return render_template('home.html')
+        #return f"Welcome, User ID: {session['user_id']}! This is your home page."
     else:
         return redirect(url_for('index'))
 
