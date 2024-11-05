@@ -181,7 +181,7 @@ def details(section):
 
     return render_template('details.html', section=section, section_title=section_title, section_content=section_content)
  """
-@app.route('/details/<section>', methods=['GET', 'POST'])
+"""@app.route('/details/<section>', methods=['GET', 'POST'])
 def details(section):
     conn = create_connection()
     cursor = conn.cursor()
@@ -199,7 +199,43 @@ def details(section):
         return f"Selected destination: {selected_destination}, Budget: {budget_range}"
 
     return render_template('details.html', section=section, destinations=destinations)
+"""
+@app.route('/details/<section>', methods=['GET', 'POST'])
+def details(section):
+    conn = create_connection()
+    cursor = conn.cursor()
+
+    # Fetching all destinations from the Destination table
+    cursor.execute("SELECT Destination_Id, Name FROM Destination")
+    destinations = cursor.fetchall()
+    #print("Fetched destinations:", destinations)  # This should print a list of tuples
+    section_title = ''
+    section_content = ''
+    show_form = False
+
+    # Dynamically set content based on which button was clicked
+    if section == 'first':
+        section_title = 'Choose Your Destination'
+        section_content = 'Select a destination and input your budget.'
+        show_form = True  # Show form for the first section
+    elif section == 'second':
+        section_title = 'Second Section'
+        section_content = 'I love you.'
+
+    if request.method == 'POST':
+        selected_destination = request.form.get('destination')
+        budget_range = request.form.get('budget')
+
+        # Logic to handle form submission or filtering can go here
+        return f"Selected destination: {selected_destination}, Budget: {budget_range}"
+
+    return render_template('details.html', 
+                           section=section, 
+                           section_title=section_title, 
+                           section_content=section_content, 
+                           destinations=destinations, 
+                           show_form=show_form)
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5020,debug=True)
+    app.run(port=5030,debug=True)
