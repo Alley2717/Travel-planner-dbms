@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Chosen Itineraries{% endblock %}
+
+{% block header %}
+  <h1>Selected Itineraries</h1>
+{% endblock %}
+
+{% block content %}
+  <h3>Your Selected Itineraries with Dates</h3>
+  <ul>
+    {% for activity, start, end in itineraries %}
+      <li>{{ activity }} - Start Date: {{ start }} - End Date: {{ end }}</li>
+    {% endfor %}
+  </ul>
+
+  <a href="{{ url_for('home') }}" class="btn btn-primary mt-3">Back to Home</a>
+{% endblock %}

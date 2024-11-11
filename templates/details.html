@@ -30,14 +30,27 @@
         <input type="date" id="start_date" name="start_date" class="form-control" required>
       </div>
 
-      <div class="mb-3">
-        <label for="days" class="form-label">Number of Days</label>
-        <input type="number" id="days" name="days" class="form-control" placeholder="Enter number of days" required>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" name="submit_destination" class="btn btn-primary">Submit</button>
     </form>
   {% endif %}
-  
+
+  {% if show_itineraries_form %}
+    <form method="POST">
+      <input type="hidden" name="start_date" value="{{ start_date }}">
+      <h3>Select Itineraries within Your Budget</h3>
+      {% for itinerary in itineraries %}
+      
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" name="selected_itinerary" value="{{ itinerary[0] }}" id="itinerary{{ itinerary[0] }}">
+          <label class="form-check-label" for="itinerary{{ itinerary[0] }}">
+            {{ itinerary[1] }} - Budget: ${{ itinerary[2] }} - Days: {{ itinerary[3] }}
+          </label>
+        </div>
+      
+      {% endfor %}
+      <button type="submit" name="submit_itineraries" class="btn btn-primary mt-3">Select Itineraries</button>
+    </form>
+  {% endif %}
+
   <a href="{{ url_for('home') }}" class="btn btn-primary mt-3">Back to Home</a>
 {% endblock %}

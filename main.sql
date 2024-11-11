@@ -62,3 +62,27 @@ CREATE TABLE Booking (
     FOREIGN KEY (Itinerary_Id) REFERENCES Itinerary(Itinerary_Id),
     FOREIGN KEY (User_Id) REFERENCES User(User_Id)
 );
+
+DELIMITER //
+
+CREATE TRIGGER check_destination_availability
+AFTER UPDATE ON Destination
+FOR EACH ROW
+BEGIN
+    IF NEW.Availability = TRUE AND OLD.Availability = FALSE THEN
+        -- Insert a notification for each user who has this destination in their preferences
+        INSERT INTO Notification (User_Id, Timestamp, Type, Message, Destination_Id)
+        SELECT 
+            up.User_Id, 
+            NOW(), 
+            'Destination Available', 
+            CONCAT('Your preferred destination ', NEW.Name, ' is now available!'),
+            NEW.Destination_Id
+        FROM 
+            UserPreferences up
+        WHERE 
+            up.Preferences = NEW.Destination_Id;
+    END IF;
+END //
+
+DELIMITER ;

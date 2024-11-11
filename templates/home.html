@@ -21,6 +21,8 @@
           font-size: 3.5rem;
         }
       }
+      body{
+      cursor: url('/static/cursor2.png'), auto;}
 
       .b-example-divider {
         width: 100%;
@@ -40,7 +42,7 @@
     <header>
       <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Carousel</a>
+          <a class="navbar-brand" href="#">Trippy✈️</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -50,10 +52,10 @@
                 <a class="nav-link active" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="http://127.0.0.1:5030/details/first">Plan</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
               </li>
             </ul>
           </div>
@@ -73,9 +75,9 @@
             <img src="static/carousel1.jpg" class="d-block w-100" alt="First slide">
             <div class="container">
               <div class="carousel-caption text-start">
-                <h1>Example headline.</h1>
-                <p>Some representative placeholder content for the first slide of the carousel.</p>
-                <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+                <h1>BRB, going to soak up some vitamin sea.</h1>
+                <p>The world's shortest commercial flight takes only 2 minutes</p>
+                <!--<p><a class="btn btn-lg btn-primary" href="http://127.0.0.1:5030/login">Sign up today</a></p>-->
               </div>
             </div>
           </div>
@@ -83,9 +85,9 @@
             <img src="static/carousel2.jpg" class="d-block w-100" alt="second slide">
             <div class="container">
               <div class="carousel-caption">
-                <h1>Another example headline.</h1>
-                <p>Some representative placeholder content for the second slide of the carousel.</p>
-                <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+                <h1>Take only pictures, leave only footprints.</h1>
+                <p>Travel can help you learn new languages.</p>
+                <!--<p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>-->
               </div>
             </div>
           </div>
@@ -93,9 +95,9 @@
             <img src="static/carousel3.jpg" class="d-block w-100" alt="third slide">
             <div class="container">
               <div class="carousel-caption text-end">
-                <h1>One more for good measure.</h1>
-                <p>Some representative placeholder content for the third slide of this carousel.</p>
-                <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+                <h1>What’s on my bucket list? Everywhere.</h1>
+                <p>France is the most visited country in the world.</p>
+                <!--<p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>-->
               </div>
             </div>
           </div>
@@ -120,9 +122,9 @@
           <div class="col-lg-4">
             <img src="static/france.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140" alt="third column image">
             <h2 class="fw-normal">Notify me</h2>
-            <p>And lastly this, the third column of representative placeholder content.</p>
-            <p><a class="btn btn-secondary" href="{{ url_for('details', section='third') }}">View details &raquo;</a></p>
-          </div><!-- /.col-lg-4 -->
+            <p>Get notified when your preferred destinations become available.</p>
+            <p><a class="btn btn-secondary" href="{{ url_for('notify') }}">Set Notifications</a></p>
+        </div>
         </div><!-- /.row -->
 
         <!-- START THE FEATURETTES -->
@@ -132,7 +134,7 @@
         <div class="row featurette">
           <div class="col-md-7">
             <h2 class="featurette-heading fw-normal lh-1">Maps. <span class="text-body-secondary">It’ll blow your mind.</span></h2>
-            <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+            <p class="lead">Explore the most amazing places on the globe</p>
           </div>
           <div class="col-md-5">
             <a href="https://www.google.com/maps" target="_blank">
@@ -157,11 +159,11 @@
 
         <div class="row featurette">
           <div class="col-md-7">
-            <h2 class="featurette-heading fw-normal lh-1">Help us. And lastly, this one. <span class="text-body-secondary">Checkmate.</span></h2>
+            <h2 class="featurette-heading fw-normal lh-1">Explore Local.<span class="text-body-secondary"> Checkmate.</span></h2>
             <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
           </div>
           <div class="col-md-5">
-            <img src="your-featurette-image1.jpg" class="bd-placeholder-img featurette-image img-fluid mx-auto" alt="Featurette image 1">
+            <img src="/static/local.webp" class="bd-placeholder-img featurette-image img-fluid mx-auto" alt="Featurette image 1">
           </div>
         </div>
 

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Notify Me - TravelEase{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Notify Me</h2>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="destination" class="form-label">Select Destination</label>
+            <select id="destination" name="destination" class="form-select" required>
+                <option value="">Choose a destination</option>
+                {% for destination in destinations %}
+                    <option value="{{ destination.Destination_Id }}">{{ destination.Name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Set Notification</button>
+    </form>
+</div>
+{% endblock %}
