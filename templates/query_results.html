@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Results - TravelEase</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --background-color: #f4f7f9;
+            --text-color: #333;
+            --card-background: #ffffff;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        .results-section {
+            background-color: var(--card-background);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .results-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .results-item {
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 10px;
+            transition: transform 0.2s ease-in-out;
+        }
+        .results-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .results-item strong {
+            color: var(--secondary-color);
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            .results-item {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="results-section">
+            <h1>Itineraries with Destination Names</h1>
+            <ul class="results-list">
+                {% for row in join_results %}
+                    <li class="results-item">
+                        <strong>Itinerary ID:</strong> {{ row.Itinerary_Id }}<br>
+                        <strong>Start Date:</strong> {{ row.Start_Date }}<br>
+                        <strong>Budget:</strong> ${{ row.Budget }}<br>
+                        <strong>Destination:</strong> {{ row.Destination_Name }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="results-section">
+            <h1>Users with High-Budget Itineraries</h1>
+            <ul class="results-list">
+                {% for user in nested_results %}
+                    <li class="results-item">
+                        <strong>User ID:</strong> {{ user.User_Id }}<br>
+                        <strong>Name:</strong> {{ user.First_Name }} {{ user.Last_Name }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

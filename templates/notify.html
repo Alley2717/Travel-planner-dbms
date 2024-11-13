@@ -5,7 +5,7 @@
 {% block content %}
 <div class="container mt-5">
     <h2>Notify Me</h2>
-    <form method="POST">
+    <form method="POST" onsubmit="return showAlert()">
         <div class="mb-3">
             <label for="destination" class="form-label">Select Destination</label>
             <select id="destination" name="destination" class="form-select" required>
@@ -18,4 +18,12 @@
         <button type="submit" class="btn btn-primary">Set Notification</button>
     </form>
 </div>
+
+<script>
+    function showAlert() {
+        alert("We will notify you once the destination is available.");
+        window.location.href = "/home"; // Redirect to home page
+        return false; // Prevents form submission to avoid page reload
+    }
+</script>
 {% endblock %}

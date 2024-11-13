@@ -117,7 +117,7 @@
             <img src="static/thailand.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140" alt="second column image">
             <h2 class="fw-normal">Transport</h2>
             <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-            <p><a class="btn btn-secondary" href="{{ url_for('details',section='second') }}">View details &raquo;</a></p>
+            <p><a class="btn btn-secondary" href="{{ url_for('view_details') }}">View details &raquo;</a></p>
           </div><!-- /.col-lg-4 -->
           <div class="col-lg-4">
             <img src="static/france.jpg" class="bd-placeholder-img rounded-circle" width="140" height="140" alt="third column image">
@@ -147,11 +147,11 @@
 
         <div class="row featurette">
           <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading fw-normal lh-1">Personal diary. Oh yeah, it’s that good. <span class="text-body-secondary">See for yourself.</span></h2>
-            <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+            <h2 class="featurette-heading fw-normal lh-1">Explore our options. Oh yeah, it’s that good. <span class="text-body-secondary">See for yourself.</span></h2>
+            <p class="lead">We have {{ data.number }} destinations. Click to see itineraries</p>
           </div>
           <div class="col-md-5 order-md-1">
-            <img src="your-featurette-image1.jpg" class="bd-placeholder-img featurette-image img-fluid mx-auto" alt="Featurette image 1">
+            <p><a class="btn btn-lg btn-primary" href="{{ url_for('query_results') }}">See Itineraries</a></p>
           </div>
         </div>
 
