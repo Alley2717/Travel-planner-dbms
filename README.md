@@ -1,51 +1,82 @@
-Travel Planner – DBMS Project
+# Travel Planner – Full Stack DBMS Project
 
-This web application is a full-stack travel planning system that helps users explore destinations, customize itineraries, manage bookings, and receive notifications based on availability and preferences. Built using a relational database management system, the project covers both user and admin functionalities and includes real-time updates and budget-aware planning.
+This is a full-stack travel planning web application that enables users to search for destinations, customize itineraries, manage bookings, and receive availability-based notifications. The project demonstrates complete integration of a relational database with frontend and backend components, supporting both user and admin workflows.
 
-Key Features
-1. User Authentication
-- Secure login system with special access for admin users.
-- Admin credentials: test@example.com and password123.
+---
 
-2. Destination Search and Exploration
-- Users can search for destinations and view:
-- Location information
-- Availability status
-- Places to visit within the destination
+## Features
 
-3. Itinerary Planning
-- Users enter start date and end date.
-- The system calculates visit dates for each place based on stay duration.
-- Displays all itineraries within budget as checkboxes for selection.
-- Selected itineraries are saved in the Itinerary table.
+### 1. User Authentication
+- Secure login and session management
+- Special access credentials for admin users  
+  *(Demo credentials: test@example.com / password123)*
 
-4. Travel Mode Selection
-- Users can select their preferred mode of transport (bus, train, flight, etc.) during planning.
+### 2. Destination Search and Exploration
+- Users can search destinations by name or location
+- View key details: availability status, points of interest, estimated cost
+- Visualize and compare travel options interactively
 
-5. Booking System
-- Chosen itinerary can be booked via a booking page.
-- Payment information is stored (always marked as "paid through portal").
-- Booking and payment status are tracked in the Booking table.
-- A confirmation page displays after successful booking.
+### 3. Itinerary Planning
+- Input travel start and end dates
+- Automatically calculates visit dates and displays possible itineraries
+- Users select suitable options via checkboxes
+- Selections are stored in the `Itinerary` table
 
-6. Budget Calculation
-- Budget is automatically calculated based on selected destinations and number of days.
-- The total is stored and displayed as part of the itinerary details.
+### 4. Travel Mode Selection
+- Supports transport preferences: bus, train, flight, etc.
+- Integrated during the itinerary selection phase
 
-7. Notification System
-- Users can choose to be notified when an unavailable destination becomes available.
-- When availability is updated, an email is triggered to the user.
-- Notification details are logged in the Notification table with timestamp and message.
+### 5. Booking & Payment System
+- Book selected itineraries through a dedicated booking page
+- Payment information is stored as "paid through portal"
+- Confirmation page shown post-booking
+- Booking details tracked in the `Booking` table
 
-8. Admin Dashboard
-Admin can:
-- Add destinations with details like ID, name, location, availability, and cost.
-- Add itineraries linked to destinations.
-- View and manage all itineraries and bookings.
+### 6. Budget Calculator
+- Computes trip budget dynamically based on stay duration and selected locations
+- Budget is displayed and logged as part of the itinerary
 
-Technologies Used
-- Frontend: HTML, CSS, JavaScript
-- Backend: Python (Flask)
-- Database: MySQL
-- Email Handling: SMTP (for notification system)
+### 7. Notification System
+- Users can opt-in to be notified when destinations become available
+- Automatic email notifications using SMTP
+- Logged in the `Notification` table with timestamp and message
 
+### 8. Admin Dashboard
+- Add and manage destinations with ID, name, cost, availability, and location
+- Create and manage itineraries linked to destinations
+- View user bookings and system-wide itinerary data
+
+---
+
+## Tech Stack
+
+- **Frontend:** HTML, CSS, JavaScript  
+- **Backend:** Python (Flask)  
+- **Database:** MySQL  
+- **Email System:** SMTP for notifications  
+
+---
+
+## Database Overview
+
+Tables used in the system:
+- `Users`
+- `Destinations`
+- `Itinerary`
+- `Booking`
+- `Notification`
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Python 3.x
+- MySQL Server
+- SMTP-enabled email credentials (for notifications)
+
+### Installation Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/alley2727/travel-planner-dbms.git
+   cd travel-planner-dbms
