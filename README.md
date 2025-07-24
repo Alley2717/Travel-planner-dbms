@@ -78,5 +78,5 @@ Tables used in the system:
 ### Installation Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/alley2727/travel-planner-dbms.git
+   git clone https://github.com/alley2717/travel-planner-dbms.git
    cd travel-planner-dbms
