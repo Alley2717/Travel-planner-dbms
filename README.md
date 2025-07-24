@@ -8,7 +8,7 @@ Key Features
 - Admin credentials: test@example.com and password123.
 
 2. Destination Search and Exploration
-- Users can search for destinations and view:
+Users can search for destinations and view:
 - Location information
 - Availability status
 - Places to visit within the destination
